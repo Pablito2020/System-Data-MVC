@@ -16,7 +16,7 @@ public class Display extends GraphicsProgram {
     private GObject[] observersGraphics = new GObject[0];
 
     public Display(ClickBehavior clickBehavior) {
-        updateButton = new Button(getWidth() / 3, getHeight() / 2, "Update Data", clickBehavior);
+        updateButton = new Button((double) getWidth() / 3, (double) getHeight() / 2, "Update Data", clickBehavior);
     }
 
     public void updateObserversData(Observer[] observers) {
@@ -45,12 +45,12 @@ public class Display extends GraphicsProgram {
         int length = observersGraphics.length + 1;
         observersGraphics = Arrays.copyOf(observersGraphics, length);
         observersGraphics[length - 1] = graphicalObject;
-        add(observersGraphics[length - 1], getWidth() / 2, 50 * length);
+        add(observersGraphics[length - 1], (double) getWidth() / 2, 50 * length);
     }
 
     public void addBasicComponents() {
         setTitle("Application Context Information:");
-        add(updateButton, getWidth() / 3, getHeight() / 2);
+        add(updateButton, (double) getWidth() / 3, (double) getHeight() / 2);
     }
 
     @Override

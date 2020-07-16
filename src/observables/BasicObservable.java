@@ -2,20 +2,12 @@ package observables;
 
 import observers.Observer;
 
-/*
-    TODO: In this case, an ArrayList object would be way better, but , for now I don't really know how to work with it, so I decided to keep an array.
-*/
-
-public class SystemObservable implements Observable {
+public class BasicObservable implements Observable {
 
     private Observer[] observers;
 
-    public SystemObservable() {
+    public BasicObservable() {
         this.observers = new Observer[0];
-    }
-
-    public Observer[] getObservers() {
-        return observers;
     }
 
     @Override
@@ -37,7 +29,7 @@ public class SystemObservable implements Observable {
     }
 
     @Override
-    public void updateObservers() {
+    public void notifyObservers() {
         for (Observer observer : observers) {
             observer.update();
         }

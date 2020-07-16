@@ -1,4 +1,4 @@
-package gui.button;
+package mvc.view;
 
 import acm.graphics.GCompound;
 import acm.graphics.GLabel;
@@ -6,14 +6,11 @@ import acm.graphics.GRectangle;
 import acm.graphics.GRoundRect;
 
 import java.awt.*;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 
 public class Button extends GCompound {
 
     private static final double PADDING = 0.1;
 
-    private final ClickBehavior clickBehavior;
     private GRoundRect button;
     private GLabel buttonText;
     private final String text;
@@ -24,14 +21,12 @@ public class Button extends GCompound {
     private Color selectionTextColor = Color.BLACK;
     private Color selectionButtonColor = Color.GREEN;
 
-    public Button(double x, double y, String text, ClickBehavior clickBehavior) {
+    public Button(String text, double x, double y) {
         this.text = text;
-        this.clickBehavior = clickBehavior;
         this.createText();
         this.createRectangle(x, y);
         this.colorizeButton();
         this.fusionRectangleAndText(x, y);
-        this.addMouseListeners();
     }
 
     public Color getRectangleColor() {
@@ -79,35 +74,6 @@ public class Button extends GCompound {
     private void colorizeButton() {
         button.setFilled(true);
         setNormalColors();
-    }
-
-    private void addMouseListeners() {
-        this.addMouseListener(new MouseListener() {
-            @Override
-            public void mouseClicked(MouseEvent mouseEvent) {
-                clickBehavior.clickAction();
-            }
-
-            @Override
-            public void mousePressed(MouseEvent mouseEvent) {
-
-            }
-
-            @Override
-            public void mouseReleased(MouseEvent mouseEvent) {
-
-            }
-
-            @Override
-            public void mouseEntered(MouseEvent mouseEvent) {
-                setSelectionColors();
-            }
-
-            @Override
-            public void mouseExited(MouseEvent mouseEvent) {
-                setNormalColors();
-            }
-        });
     }
 
     private void setNormalColors() {

@@ -5,7 +5,7 @@
 ### 🙌 Utilities of this pattern
 
 The Observer Pattern defines a one-to-many dependency between objects so that when one object changes state, all of its dependents are notified and updated automatically. In this scenario, I used the observer pattern with a mouse listener on a button.
-The way it works is very simple, when we click the button, the observable object sends a notification to the observers and they update they data.
+The way it works is very simple, when we click the button, the observable object sends a notification to the components and they update they data.
 
 
 ### ❓ Prerequesites to understand the observer pattern:

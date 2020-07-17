@@ -2,7 +2,7 @@ package mvc.view;
 
 import acm.graphics.GLabel;
 import acm.program.GraphicsProgram;
-import mvc.Controler;
+import mvc.Controller;
 import mvc.Model;
 import mvc.View;
 import observables.Observable;
@@ -12,7 +12,7 @@ import java.awt.event.MouseEvent;
 
 public class Display extends GraphicsProgram implements Observer, View {
 
-    private final Controler controler;
+    private final Controller controller;
     private final Model model;
 
     private Button clickButton;
@@ -21,8 +21,8 @@ public class Display extends GraphicsProgram implements Observer, View {
     private GLabel systemVersion;
     private GLabel time;
 
-    public Display(Controler controler, Model model) {
-        this.controler = controler;
+    public Display(Controller controller, Model model) {
+        this.controller = controller;
         this.model = model;
         ((Observable) model).addObserver(this);
         this.createElements();
@@ -40,7 +40,7 @@ public class Display extends GraphicsProgram implements Observer, View {
 
     @Override
     public void mouseClicked(MouseEvent e) {
-        if (clickButton.contains(e.getX(), e.getY())) controler.updateButtonClicked();
+        if (clickButton.contains(e.getX(), e.getY())) controller.updateButtonClicked();
     }
 
     @Override

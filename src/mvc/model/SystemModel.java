@@ -9,7 +9,7 @@ import components.Time;
 import observables.Observable;
 import observables.BasicObservable;
 
-public class SystemModel implements Model, Observable {
+public class SystemModel implements Model {
 
     private Observable displayObservable;
     private Observable componentsObservable;
@@ -36,7 +36,7 @@ public class SystemModel implements Model, Observable {
         componentsObservable.addObserver(time);
     }
 
-    // Update data method (called from the controler)
+    // Update data method (called from the controller)
 
     @Override
     public void updateData() {

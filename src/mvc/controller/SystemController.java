@@ -1,15 +1,15 @@
-package mvc.controler;
+package mvc.controller;
 
-import mvc.Controler;
+import mvc.Controller;
 import mvc.Model;
 import mvc.view.Display;
 
-public class SystemControler implements Controler {
+public class SystemController implements Controller {
 
     private Model model;
     private Display display;
 
-    public SystemControler(Model model) {
+    public SystemController(Model model) {
         this.model = model;
         this.display = new Display(this, model);
         display.start();

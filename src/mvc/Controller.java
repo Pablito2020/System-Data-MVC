@@ -1,5 +1,5 @@
 package mvc;
 
-public interface Controler {
+public interface Controller {
     void updateButtonClicked();
 }

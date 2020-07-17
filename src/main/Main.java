@@ -1,8 +1,8 @@
 package main;
 
-import mvc.Controller;
+import mvc.controller.Controller;
 import mvc.controller.SystemController;
-import mvc.Model;
+import mvc.model.Model;
 import mvc.model.SystemModel;
 
 public class Main {

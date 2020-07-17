@@ -2,9 +2,8 @@ package mvc.view;
 
 import acm.graphics.GLabel;
 import acm.program.GraphicsProgram;
-import mvc.Controller;
-import mvc.Model;
-import mvc.View;
+import mvc.controller.Controller;
+import mvc.model.Model;
 import observables.Observable;
 import observers.Observer;
 

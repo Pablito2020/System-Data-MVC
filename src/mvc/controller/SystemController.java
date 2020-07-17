@@ -1,7 +1,6 @@
 package mvc.controller;
 
-import mvc.Controller;
-import mvc.Model;
+import mvc.model.Model;
 import mvc.view.Display;
 
 public class SystemController implements Controller {

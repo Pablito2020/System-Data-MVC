@@ -1,6 +1,5 @@
 package mvc.model;
 
-import mvc.Model;
 import observers.Observer;
 import components.Counter;
 import components.Layout;

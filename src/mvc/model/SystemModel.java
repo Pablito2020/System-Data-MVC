@@ -11,7 +11,7 @@ import observables.BasicObservable;
 public class SystemModel implements Model {
 
     private Observable displayObservable;
-    private Observable componentsObservable;
+    private Observable modelObservable;
 
     private Counter counter;
     private Layout layout;
@@ -19,27 +19,35 @@ public class SystemModel implements Model {
     private Time time;
 
     public SystemModel() {
+        initializeObservables();
+        initializeComponents();
+        makeComponentsObserversOfModel();
+    }
+
+    private void initializeObservables() {
         this.displayObservable = new BasicObservable();
-        this.componentsObservable = new BasicObservable();
+        this.modelObservable = new BasicObservable();
+    }
+
+    private void initializeComponents() {
         this.counter = new Counter();
         this.layout = new Layout();
         this.systemVersion = new SystemVersion();
         this.time = new Time();
-        addComponentsObservers();
     }
 
-    private void addComponentsObservers() {
-        componentsObservable.addObserver(counter);
-        componentsObservable.addObserver(layout);
-        componentsObservable.addObserver(systemVersion);
-        componentsObservable.addObserver(time);
+    private void makeComponentsObserversOfModel() {
+        modelObservable.addObserver(counter);
+        modelObservable.addObserver(layout);
+        modelObservable.addObserver(systemVersion);
+        modelObservable.addObserver(time);
     }
 
     // Update data method (called from the controller)
 
     @Override
     public void updateData() {
-        componentsObservable.notifyObservers();
+        modelObservable.notifyObservers();
         displayObservable.notifyObservers();
     }
 

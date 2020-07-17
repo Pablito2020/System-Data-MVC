@@ -11,13 +11,17 @@ public class SystemController implements Controller {
     public SystemController(Model model) {
         this.model = model;
         this.display = new Display(this, model);
-        display.start();
-        display.addElements();
+        this.initializeDisplay();
     }
 
     @Override
     public void updateButtonClicked() {
         model.updateData();
+    }
+
+    private void initializeDisplay() {
+        display.start();
+        display.addElements();
     }
 
 }

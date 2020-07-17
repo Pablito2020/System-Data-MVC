@@ -6,19 +6,20 @@ import static java.lang.System.getProperty;
 
 public class SystemVersion implements Observer {
 
-    private String operatingSystem;
+    private String operatingSystemVersion;
 
     public SystemVersion() {
-        operatingSystem = getProperty("os.version");
+        operatingSystemVersion = getProperty("os.version");
     }
 
     @Override
     public void update() {
-        operatingSystem = getProperty("os.version");
+        operatingSystemVersion = getProperty("os.version");
     }
 
     public String getInformation() {
-        return "Linux kernel is: " + operatingSystem;
+        String currentOS = System.getProperty("os.name");
+        return currentOS.equals("Linux") ? "Linux kernel version : " + operatingSystemVersion : currentOS + " version is: " + operatingSystemVersion;
     }
 
 }

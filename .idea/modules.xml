@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/ObserverPattern.iml" filepath="$PROJECT_DIR$/ObserverPattern.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ModelViewController.iml" filepath="$PROJECT_DIR$/ModelViewController.iml" />
     </modules>
   </component>
 </project>

@@ -1,12 +1,12 @@
 package mvc.model;
 
-import observers.Observer;
+import observer.observers.Observer;
 import components.Counter;
 import components.Layout;
 import components.SystemVersion;
 import components.Time;
-import observables.Observable;
-import observables.BasicObservable;
+import observer.observables.Observable;
+import observer.observables.BasicObservable;
 
 public class SystemModel implements Model {
 

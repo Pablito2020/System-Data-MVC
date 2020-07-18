@@ -1,10 +1,10 @@
 <h1 align="center">
-  The Observer Pattern
+  The observer Pattern
 </h1>
 
 ### 🙌 Utilities of this pattern
 
-The Observer Pattern defines a one-to-many dependency between objects so that when one object changes state, all of its dependents are notified and updated automatically. In this scenario, I used the observer pattern with a mouse listener on a button.
+The observer Pattern defines a one-to-many dependency between objects so that when one object changes state, all of its dependents are notified and updated automatically. In this scenario, I used the observer pattern with a mouse listener on a button.
 
 The way it works is very simple, when we click the button, the observable object sends a notification to the components and they update they data. After the components have updated their data, the observable sends a notification to the display components
 and they grab the data from the components (previously updated).

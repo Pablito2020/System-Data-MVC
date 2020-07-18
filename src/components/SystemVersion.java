@@ -1,6 +1,6 @@
 package components;
 
-import observers.Observer;
+import observer.observers.Observer;
 
 import static java.lang.System.getProperty;
 

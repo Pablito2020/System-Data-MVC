@@ -1,6 +1,6 @@
 package mvc.model;
 
-import observables.Observable;
+import observer.observables.Observable;
 
 public interface Model extends Observable {
     void updateData();

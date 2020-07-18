@@ -4,7 +4,7 @@ import acm.graphics.GLabel;
 import acm.program.GraphicsProgram;
 import mvc.controller.Controller;
 import mvc.model.Model;
-import observers.Observer;
+import observer.observers.Observer;
 
 import java.awt.event.MouseEvent;
 

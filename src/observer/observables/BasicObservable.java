@@ -1,6 +1,6 @@
-package observables;
+package observer.observables;
 
-import observers.Observer;
+import observer.observers.Observer;
 
 public class BasicObservable implements Observable {
 

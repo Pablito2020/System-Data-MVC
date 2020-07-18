@@ -7,7 +7,6 @@ import mvc.model.SystemModel;
 
 public class Main {
 
-
     public static void main(String[] args) {
         Main program = new Main();
         program.initialize();

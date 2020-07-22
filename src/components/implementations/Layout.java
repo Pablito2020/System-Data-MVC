@@ -1,10 +1,10 @@
-package components;
+package components.implementations;
 
-import observer.observers.Observer;
+import components.Component;
 
 import static java.lang.System.getProperty;
 
-public class Layout implements Observer {
+public class Layout implements Component {
 
     private String layout;
 
@@ -17,6 +17,7 @@ public class Layout implements Observer {
         this.layout = getProperty("user.language");
     }
 
+    @Override
     public String getInformation() {
         return "Language: " + layout;
     }

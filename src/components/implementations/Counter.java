@@ -1,8 +1,8 @@
-package components;
+package components.implementations;
 
-import observer.observers.Observer;
+import components.Component;
 
-public class Counter implements Observer {
+public class Counter implements Component {
 
     private int counter;
 
@@ -15,6 +15,7 @@ public class Counter implements Observer {
         counter += 1;
     }
 
+    @Override
     public String getInformation() {
         return "You have clicked: " + counter;
     }

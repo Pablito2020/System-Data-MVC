@@ -1,11 +1,9 @@
 package mvc.model;
 
+import components.Components;
 import observer.observables.Observable;
 
 public interface Model extends Observable {
     void updateData();
-    String getCounter();
-    String getKeyboard();
-    String getSystemInformation();
-    String getTime();
+    String getInfo(Components component);
 }

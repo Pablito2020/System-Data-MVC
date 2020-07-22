@@ -1,10 +1,10 @@
-package components;
+package components.implementations;
 
-import observer.observers.Observer;
+import components.Component;
 
 import java.time.LocalTime;
 
-public class Time implements Observer {
+public class Time implements Component {
 
     LocalTime time;
 
@@ -17,6 +17,7 @@ public class Time implements Observer {
         time = LocalTime.now();
     }
 
+    @Override
     public String getInformation() {
         return "Current time: " + time;
     }

@@ -1,76 +1,41 @@
 package mvc.model;
 
-import observer.observers.Observer;
-import components.Counter;
-import components.Layout;
-import components.SystemVersion;
-import components.Time;
-import observer.observables.Observable;
+import components.*;
+import components.implementations.Counter;
+import components.implementations.Layout;
+import components.implementations.SystemVersion;
+import components.implementations.Time;
 import observer.observables.BasicObservable;
+import observer.observables.Observable;
+import observer.observers.Observer;
 
-public class SystemModel implements Model {
+public class SystemModel extends ComponentsBag implements Model {
 
-    private Observable displayObservable;
-    private Observable modelObservable;
-
-    private Counter counter;
-    private Layout layout;
-    private SystemVersion systemVersion;
-    private Time time;
+    private final Observable displayObservable;
+    private final ComponentsBag components;
 
     public SystemModel() {
-        initializeObservables();
-        initializeComponents();
-        makeComponentsObserversOfModel();
-    }
-
-    private void initializeObservables() {
+        this.components = new ComponentsBag();
         this.displayObservable = new BasicObservable();
-        this.modelObservable = new BasicObservable();
+        this.initializeComponents();
     }
 
     private void initializeComponents() {
-        this.counter = new Counter();
-        this.layout = new Layout();
-        this.systemVersion = new SystemVersion();
-        this.time = new Time();
+        components.addComponent(new Counter());
+        components.addComponent(new Layout());
+        components.addComponent(new SystemVersion());
+        components.addComponent(new Time());
     }
-
-    private void makeComponentsObserversOfModel() {
-        modelObservable.addObserver(counter);
-        modelObservable.addObserver(layout);
-        modelObservable.addObserver(systemVersion);
-        modelObservable.addObserver(time);
-    }
-
-    // Update data method (called from the controller)
 
     @Override
     public void updateData() {
-        modelObservable.notifyObservers();
+        components.updateComponents();
         displayObservable.notifyObservers();
     }
 
-    // Getters
-
     @Override
-    public String getCounter() {
-        return counter.getInformation();
-    }
-
-    @Override
-    public String getKeyboard() {
-        return layout.getInformation();
-    }
-
-    @Override
-    public String getSystemInformation() {
-        return systemVersion.getInformation();
-    }
-
-    @Override
-    public String getTime() {
-        return time.getInformation();
+    public String getInfo(Components component) {
+        return components.getInfo(component);
     }
 
     // Add Observers or delete Observers

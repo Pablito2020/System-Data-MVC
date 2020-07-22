@@ -5,8 +5,8 @@ import mvc.view.Display;
 
 public class SystemController implements Controller {
 
-    private Model model;
-    private Display display;
+    private final Model model;
+    private final Display display;
 
     public SystemController(Model model) {
         this.model = model;

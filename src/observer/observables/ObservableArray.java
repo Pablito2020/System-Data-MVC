@@ -2,11 +2,11 @@ package observer.observables;
 
 import observer.observers.Observer;
 
-public class BasicObservable implements Observable {
+public class ObservableArray implements Observable {
 
     private Observer[] observers;
 
-    public BasicObservable() {
+    public ObservableArray() {
         this.observers = new Observer[0];
     }
 

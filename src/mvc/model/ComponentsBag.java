@@ -14,11 +14,7 @@ public class ComponentsBag {
     private ArrayList<Component> components;
 
     public ComponentsBag() {
-        this.initializeComponents();
-    }
-
-    private void initializeComponents() {
-        components = new ArrayList<>();
+        this.components = new ArrayList<>();
     }
 
     public void addComponent(Component component) {
@@ -30,7 +26,7 @@ public class ComponentsBag {
             currentComponent.update();
     }
 
-    // I dont't really like this method but, working with the instanceof operator was a pain in the ass....
+    // I don't really like this method but, working with the instanceof operator was a pain ...
 
     public String getInfo(Components component) {
         Iterator<Component> componentIterator = components.iterator();
@@ -41,7 +37,7 @@ public class ComponentsBag {
             else if (currentComponent instanceof SystemVersion && component == Components.SYSTEM_VERSION) return currentComponent.getInformation();
             else if (currentComponent instanceof Time && component == Components.TIME) return currentComponent.getInformation();
         }
-        throw new IllegalArgumentException("You have no component named " + component );
+        throw new IllegalArgumentException("You have no component named " + component);
     }
 
 }

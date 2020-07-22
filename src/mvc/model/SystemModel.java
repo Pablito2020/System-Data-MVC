@@ -1,12 +1,12 @@
 package mvc.model;
 
-import components.*;
+import components.Components;
 import components.implementations.Counter;
 import components.implementations.Layout;
 import components.implementations.SystemVersion;
 import components.implementations.Time;
-import observer.observables.BasicObservable;
 import observer.observables.Observable;
+import observer.observables.ObservableArray;
 import observer.observers.Observer;
 
 public class SystemModel extends ComponentsBag implements Model {
@@ -16,11 +16,11 @@ public class SystemModel extends ComponentsBag implements Model {
 
     public SystemModel() {
         this.components = new ComponentsBag();
-        this.displayObservable = new BasicObservable();
-        this.initializeComponents();
+        this.displayObservable = new ObservableArray();
+        this.addComponents();
     }
 
-    private void initializeComponents() {
+    private void addComponents() {
         components.addComponent(new Counter());
         components.addComponent(new Layout());
         components.addComponent(new SystemVersion());

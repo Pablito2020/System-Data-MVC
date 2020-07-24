@@ -4,7 +4,6 @@ import components.Component;
 import components.Components;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 
 public class ComponentsBag {
 

@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 public class ObservableArrayList implements Observable {
 
-    private ArrayList<Observer> observers;
+    private final ArrayList<Observer> observers;
 
     public ObservableArrayList() {
         this.observers = new ArrayList<>();
@@ -24,7 +24,7 @@ public class ObservableArrayList implements Observable {
 
     @Override
     public void notifyObservers() {
-        for(Observer observer : observers)
+        for (Observer observer : observers)
             observer.update();
     }
 

@@ -10,11 +10,9 @@ import java.awt.*;
 public class Button extends GCompound {
 
     private static final double PADDING = 0.1;
-
+    private final String text;
     private GRoundRect button;
     private GLabel buttonText;
-    private final String text;
-
     private Color normalTextColor = Color.WHITE;
     private Color normalButtonColor = Color.RED;
 

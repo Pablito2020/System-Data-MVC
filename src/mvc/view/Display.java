@@ -19,6 +19,7 @@ public class Display extends GraphicsProgram implements Observer, View {
     private GLabel keyboardLayout;
     private GLabel systemVersion;
     private GLabel time;
+    private GLabel timer;
 
     public Display(Controller controller, Model model) {
         this.controller = controller;
@@ -40,6 +41,7 @@ public class Display extends GraphicsProgram implements Observer, View {
         keyboardLayout.setLabel(model.getInfo(Components.LAYOUT));
         systemVersion.setLabel(model.getInfo(Components.SYSTEM_VERSION));
         time.setLabel(model.getInfo(Components.TIME));
+        timer.setLabel(model.getInfo(Components.TIMER));
     }
 
     private void createElements() {
@@ -56,6 +58,7 @@ public class Display extends GraphicsProgram implements Observer, View {
         keyboardLayout = new GLabel(model.getInfo(Components.LAYOUT), (double) getWidth() / 2, (double) getHeight() * 2 / 6);
         systemVersion = new GLabel(model.getInfo(Components.SYSTEM_VERSION), (double) getWidth() / 2, (double) getHeight() * 3 / 6);
         time = new GLabel(model.getInfo(Components.TIME), (double) getWidth() / 2, (double) getHeight() * 4 / 6);
+        timer = new GLabel(model.getInfo(Components.TIMER), (double) getWidth() / 2, (double) getHeight() * 5 / 6);
     }
 
     @Override
@@ -73,6 +76,7 @@ public class Display extends GraphicsProgram implements Observer, View {
         add(keyboardLayout, (double) getWidth() / 2, (double) getHeight() * 2 / 6);
         add(systemVersion, (double) getWidth() / 2, (double) getHeight() * 3 / 6);
         add(time, (double) getWidth() / 2, (double) getHeight() * 4 / 6);
+        add(timer, (double) getWidth() / 2, (double) getHeight() * 5 / 6);
     }
 
 }

@@ -1,10 +1,7 @@
 package mvc.model;
 
 import components.Components;
-import components.implementations.Counter;
-import components.implementations.Layout;
-import components.implementations.SystemVersion;
-import components.implementations.Time;
+import components.implementations.*;
 import observer.observables.Observable;
 import observer.observables.ObservableArray;
 import observer.observers.Observer;
@@ -25,6 +22,7 @@ public class SystemModel extends ComponentsBag implements Model {
         components.addComponent(new Layout());
         components.addComponent(new SystemVersion());
         components.addComponent(new Time());
+        components.addComponent(new TimerComp());
     }
 
     @Override

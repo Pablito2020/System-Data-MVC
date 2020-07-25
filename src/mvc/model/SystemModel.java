@@ -22,7 +22,7 @@ public class SystemModel extends ComponentsBag implements Model {
         components.addComponent(new Layout());
         components.addComponent(new SystemVersion());
         components.addComponent(new Time());
-        components.addComponent(new TimerComp());
+        components.addComponent(new Timer());
     }
 
     @Override

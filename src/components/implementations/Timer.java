@@ -4,14 +4,14 @@ import components.Component;
 
 import java.util.StringTokenizer;
 
-public class TimerComp implements Component {
+public class Timer implements Component {
 
     private Time time;
     private double passed = 0;
     private int minutes = 0;
     private int hours = 0;
 
-    public TimerComp() {
+    public Timer() {
         this.time = new Time();
     }
 

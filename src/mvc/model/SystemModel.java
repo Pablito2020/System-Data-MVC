@@ -1,28 +1,26 @@
 package mvc.model;
 
 import components.Components;
-import components.implementations.*;
+import mvc.model.componentkeeper.ArrayKeeper;
+import mvc.model.componentkeeper.ComponentKeeper;
 import observer.observables.Observable;
 import observer.observables.ObservableArray;
 import observer.observers.Observer;
 
-public class SystemModel extends ComponentsBag implements Model {
+public class SystemModel implements Model {
 
     private final Observable displayObservable;
-    private final ComponentsBag components;
+    private final ComponentKeeper components;
 
     public SystemModel() {
-        this.components = new ComponentsBag();
+        this.components = new ArrayKeeper();
         this.displayObservable = new ObservableArray();
         this.addComponents();
     }
 
     private void addComponents() {
-        components.addComponent(new Counter());
-        components.addComponent(new Layout());
-        components.addComponent(new SystemVersion());
-        components.addComponent(new Time());
-        components.addComponent(new Timer());
+        for (Components component : Components.values())
+            components.addComponent(component.getComponentInstance());
     }
 
     @Override
@@ -32,8 +30,8 @@ public class SystemModel extends ComponentsBag implements Model {
     }
 
     @Override
-    public String getInfo(Components component) {
-        return components.getInfo(component);
+    public String getInformation(Components component) {
+        return components.getInformation(component);
     }
 
     // Add Observers or delete Observers

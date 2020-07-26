@@ -37,11 +37,11 @@ public class Display extends GraphicsProgram implements Observer, View {
 
     @Override
     public void update() {
-        counter.setLabel(model.getInfo(Components.COUNTER));
-        keyboardLayout.setLabel(model.getInfo(Components.LAYOUT));
-        systemVersion.setLabel(model.getInfo(Components.SYSTEM_VERSION));
-        time.setLabel(model.getInfo(Components.TIME));
-        timer.setLabel(model.getInfo(Components.TIMER));
+        counter.setLabel(model.getInformation(Components.COUNTER));
+        keyboardLayout.setLabel(model.getInformation(Components.LAYOUT));
+        systemVersion.setLabel(model.getInformation(Components.SYSTEM_VERSION));
+        time.setLabel(model.getInformation(Components.TIME));
+        timer.setLabel(model.getInformation(Components.TIMER));
     }
 
     private void createElements() {
@@ -54,11 +54,11 @@ public class Display extends GraphicsProgram implements Observer, View {
     }
 
     private void createLabels() {
-        counter = new GLabel(model.getInfo(Components.COUNTER), (double) getWidth() / 2, (double) getHeight() * 1 / 6);
-        keyboardLayout = new GLabel(model.getInfo(Components.LAYOUT), (double) getWidth() / 2, (double) getHeight() * 2 / 6);
-        systemVersion = new GLabel(model.getInfo(Components.SYSTEM_VERSION), (double) getWidth() / 2, (double) getHeight() * 3 / 6);
-        time = new GLabel(model.getInfo(Components.TIME), (double) getWidth() / 2, (double) getHeight() * 4 / 6);
-        timer = new GLabel(model.getInfo(Components.TIMER), (double) getWidth() / 2, (double) getHeight() * 5 / 6);
+        counter = new GLabel(model.getInformation(Components.COUNTER), (double) getWidth() / 2, (double) getHeight() * 1 / 6);
+        keyboardLayout = new GLabel(model.getInformation(Components.LAYOUT), (double) getWidth() / 2, (double) getHeight() * 2 / 6);
+        systemVersion = new GLabel(model.getInformation(Components.SYSTEM_VERSION), (double) getWidth() / 2, (double) getHeight() * 3 / 6);
+        time = new GLabel(model.getInformation(Components.TIME), (double) getWidth() / 2, (double) getHeight() * 4 / 6);
+        timer = new GLabel(model.getInformation(Components.TIMER), (double) getWidth() / 2, (double) getHeight() * 5 / 6);
     }
 
     @Override

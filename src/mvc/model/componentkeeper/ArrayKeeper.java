@@ -1,29 +1,32 @@
-package mvc.model;
+package mvc.model.componentkeeper;
 
 import components.Component;
 import components.Components;
 
 import java.util.ArrayList;
 
-public class ComponentsBag {
+public class ArrayKeeper implements ComponentKeeper {
 
     private final ArrayList<Component> components;
 
-    public ComponentsBag() {
+    public ArrayKeeper() {
         this.components = new ArrayList<>();
     }
 
+    @Override
     public void addComponent(Component component) {
         components.add(component);
     }
 
+    @Override
     public void updateComponents() {
         for (Component currentComponent : components)
             currentComponent.update();
     }
 
-    public String getInfo(Components component) {
-        Class currentClass = component.returnClass();
+    @Override
+    public String getInformation(Components component) {
+        Class currentClass = component.getComponentClass();
         for (Component currentComponent : components) {
             if (currentClass.isInstance(currentComponent))
                 return currentComponent.getInformation();

@@ -1,5 +1,9 @@
 package mvc.view;
 
-public interface View {
+import observer.observers.Observer;
+
+public interface View extends Observer {
+
     void addElements();
+
 }

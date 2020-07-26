@@ -5,11 +5,10 @@ import acm.program.GraphicsProgram;
 import components.Components;
 import mvc.controller.Controller;
 import mvc.model.Model;
-import observer.observers.Observer;
 
 import java.awt.event.MouseEvent;
 
-public class Display extends GraphicsProgram implements Observer, View {
+public class Display extends GraphicsProgram implements View {
 
     private final Controller controller;
     private final Model model;

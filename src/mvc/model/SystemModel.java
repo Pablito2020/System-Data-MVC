@@ -10,28 +10,28 @@ import observer.observers.Observer;
 public class SystemModel implements Model {
 
     private final Observable displayObservable;
-    private final ComponentKeeper components;
+    private final ComponentKeeper componentKeeper;
 
     public SystemModel() {
-        this.components = new ArrayKeeper();
+        this.componentKeeper = new ArrayKeeper();
         this.displayObservable = new ObservableArray();
         this.addComponents();
     }
 
     private void addComponents() {
         for (Components component : Components.values())
-            components.addComponent(component.getComponentInstance());
+            componentKeeper.addComponent(component.getComponentInstance());
     }
 
     @Override
     public void updateData() {
-        components.updateComponents();
+        componentKeeper.updateComponents();
         displayObservable.notifyObservers();
     }
 
     @Override
     public String getInformation(Components component) {
-        return components.getInformation(component);
+        return componentKeeper.getInformation(component);
     }
 
     // Add Observers or delete Observers

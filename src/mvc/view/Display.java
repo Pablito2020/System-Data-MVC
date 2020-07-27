@@ -7,6 +7,7 @@ import mvc.controller.Controller;
 import mvc.model.Model;
 
 import java.awt.event.MouseEvent;
+import java.util.ArrayList;
 
 public class Display extends GraphicsProgram implements View {
 
@@ -14,15 +15,12 @@ public class Display extends GraphicsProgram implements View {
     private final Model model;
 
     private Button clickButton;
-    private GLabel counter;
-    private GLabel keyboardLayout;
-    private GLabel systemVersion;
-    private GLabel time;
-    private GLabel timer;
+    private ArrayList<GLabel> labels;
 
     public Display(Controller controller, Model model) {
         this.controller = controller;
         this.model = model;
+        this.labels = new ArrayList<>();
         model.addObserver(this);
         this.createElements();
         this.addMouseListeners();
@@ -36,11 +34,12 @@ public class Display extends GraphicsProgram implements View {
 
     @Override
     public void update() {
-        counter.setLabel(model.getInformation(Components.COUNTER));
-        keyboardLayout.setLabel(model.getInformation(Components.LAYOUT));
-        systemVersion.setLabel(model.getInformation(Components.SYSTEM_VERSION));
-        time.setLabel(model.getInformation(Components.TIME));
-        timer.setLabel(model.getInformation(Components.TIMER));
+        int x = 0;
+        for(Components component : Components.values()) {
+            GLabel currentLabel = labels.get(x);
+            currentLabel.setLabel(model.getInformation(component));
+            x += 1;
+        }
     }
 
     private void createElements() {
@@ -53,11 +52,11 @@ public class Display extends GraphicsProgram implements View {
     }
 
     private void createLabels() {
-        counter = new GLabel(model.getInformation(Components.COUNTER), (double) getWidth() / 2, (double) getHeight() * 1 / 6);
-        keyboardLayout = new GLabel(model.getInformation(Components.LAYOUT), (double) getWidth() / 2, (double) getHeight() * 2 / 6);
-        systemVersion = new GLabel(model.getInformation(Components.SYSTEM_VERSION), (double) getWidth() / 2, (double) getHeight() * 3 / 6);
-        time = new GLabel(model.getInformation(Components.TIME), (double) getWidth() / 2, (double) getHeight() * 4 / 6);
-        timer = new GLabel(model.getInformation(Components.TIMER), (double) getWidth() / 2, (double) getHeight() * 5 / 6);
+        int x = 1;
+        for(Components component : Components.values()) {
+            labels.add(new GLabel(model.getInformation(component), (double) getWidth() / 2, (double) getHeight() * x / 6 ));
+            x += 1;
+        }
     }
 
     @Override
@@ -71,11 +70,11 @@ public class Display extends GraphicsProgram implements View {
     }
 
     private void addLabels() {
-        add(counter, (double) getWidth() / 2, (double) getHeight() * 1 / 6);
-        add(keyboardLayout, (double) getWidth() / 2, (double) getHeight() * 2 / 6);
-        add(systemVersion, (double) getWidth() / 2, (double) getHeight() * 3 / 6);
-        add(time, (double) getWidth() / 2, (double) getHeight() * 4 / 6);
-        add(timer, (double) getWidth() / 2, (double) getHeight() * 5 / 6);
+        int x = 1;
+        for (GLabel label : labels) {
+            add(label, (double) getWidth() / 2, (double) getHeight() * x / 6);
+            x += 1;
+        }
     }
 
 }

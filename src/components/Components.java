@@ -8,20 +8,19 @@ public enum Components {
 
     COUNTER(Counter.class), LAYOUT(Layout.class), SYSTEM_VERSION(SystemVersion.class), TIME(Time.class), TIMER(Timer.class);
 
-    private final Class currentClass; // Needed for checking if an observer object is an instance of some Component
+    private final Class<? extends Component> currentClass; // Needed for checking if an observer object is an instance of some Component
 
-    Components(Class componentClass) {
+    Components(Class<? extends Component> componentClass) {
         this.currentClass = componentClass;
     }
 
-    public Class getComponentClass() {
+    public Class<? extends Component> getComponentClass() {
         return currentClass;
     }
 
-    // TODO: This method needs improvement for the try/catch block!
     public Component getComponentInstance() {
         try {
-            return (Component) currentClass.getDeclaredConstructor().newInstance();
+            return currentClass.getDeclaredConstructor().newInstance(); // Thanks StackOverFlow 🙃
         } catch (InstantiationException | InvocationTargetException | NoSuchMethodException | IllegalAccessException e) {
             e.printStackTrace();
         }

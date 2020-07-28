@@ -26,9 +26,9 @@ public class ArrayKeeper implements ComponentKeeper {
 
     @Override
     public String getInformation(Components component) {
-        Class currentClass = component.getComponentClass();
+        Class<? extends Component> componentClass = component.getComponentClass();
         for (Component currentComponent : components) {
-            if (currentClass.isInstance(currentComponent))
+            if (componentClass.isInstance(currentComponent))
                 return currentComponent.getInformation();
         }
         throw new IllegalArgumentException("You have no component named " + component);

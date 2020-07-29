@@ -1,4 +1,4 @@
-package mvc.view;
+package mvc.view.buttons;
 
 import acm.graphics.GCompound;
 import acm.graphics.GLabel;

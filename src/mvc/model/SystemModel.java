@@ -1,8 +1,8 @@
 package mvc.model;
 
 import components.Components;
-import mvc.model.componentkeeper.ArrayKeeper;
-import mvc.model.componentkeeper.ComponentKeeper;
+import mvc.model.componentcontainer.ComponentArrayContainer;
+import mvc.model.componentcontainer.ComponentContainer;
 import observer.observables.Observable;
 import observer.observables.ObservableArray;
 import observer.observers.Observer;
@@ -10,28 +10,28 @@ import observer.observers.Observer;
 public class SystemModel implements Model {
 
     private final Observable displayObservable;
-    private final ComponentKeeper componentKeeper;
+    private final ComponentContainer componentContainer;
 
     public SystemModel() {
-        this.componentKeeper = new ArrayKeeper();
+        this.componentContainer = new ComponentArrayContainer();
         this.displayObservable = new ObservableArray();
         this.addComponents();
     }
 
     private void addComponents() {
         for (Components component : Components.values())
-            componentKeeper.addComponent(component.getComponentInstance());
+            componentContainer.addComponent(component.getComponentInstance());
     }
 
     @Override
     public void updateData() {
-        componentKeeper.updateComponents();
+        componentContainer.updateComponents();
         displayObservable.notifyObservers();
     }
 
     @Override
     public String getInformation(Components component) {
-        return componentKeeper.getInformation(component);
+        return componentContainer.getInformation(component);
     }
 
     // Add Observers or delete Observers

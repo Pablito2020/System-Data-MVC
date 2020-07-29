@@ -1,15 +1,15 @@
-package mvc.model.componentkeeper;
+package mvc.model.componentcontainer;
 
 import components.Component;
 import components.Components;
 
 import java.util.ArrayList;
 
-public class ArrayKeeper implements ComponentKeeper {
+public class ComponentArrayContainer implements ComponentContainer {
 
     private final ArrayList<Component> components;
 
-    public ArrayKeeper() {
+    public ComponentArrayContainer() {
         this.components = new ArrayList<>();
     }
 

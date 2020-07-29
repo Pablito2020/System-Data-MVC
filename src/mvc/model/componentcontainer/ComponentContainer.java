@@ -1,9 +1,9 @@
-package mvc.model.componentkeeper;
+package mvc.model.componentcontainer;
 
 import components.Component;
 import components.Components;
 
-public interface ComponentKeeper {
+public interface ComponentContainer {
 
     void addComponent(Component component);
 

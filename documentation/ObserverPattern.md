@@ -16,7 +16,7 @@ and they grab the data from the components (previously updated).
 
 - Abstraction (interfaces and abstract classes)
 
-- Knowing how the ArrayList object works can be very handy with this pattern (although I programmed my implementation with arrays)
+- Knowing some of the most famous data structures can be handy with this pattern (although I programmed my implementation with arrays)
 
 
 ### 📝 Class diagram (isn't really an UML):
